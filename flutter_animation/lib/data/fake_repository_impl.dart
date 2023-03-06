@@ -5,7 +5,7 @@ class FakeDataSource extends Repository {
   static bool get isFake => false;
 
   @override
-  Future<List<Movie>> getListMovie() {
+  Future<List<Movie>> getListMovie(int page) {
     // TODO: implement getListMove
     throw UnimplementedError();
   }

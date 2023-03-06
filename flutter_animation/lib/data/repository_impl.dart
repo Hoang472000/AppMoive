@@ -19,15 +19,15 @@ class RepositoryImpl with Repository {
   RepositoryImpl({required this.context});
 
   @override
-  Future<List<Movie>> getListMovie() async {
+  Future<List<Movie>> getListMovie(int page) async {
     List<Movie> lisBill = [];
     try {
-      Response res = await get(Uri.parse(ApiConst.domainApi));
+      Response res = await get(Uri.parse(ApiConst.domainApi + "$page"));
       String data = jsonEncode(jsonDecode(res.body)[ApiParameterConst.results]);
       lisBill = parseListMove(data);
-      DatabaseMovie().insertMovie(lisBill);
+      DatabaseMovie.instance.insertMovie(lisBill);
     } catch (e) {
-      lisBill = await DatabaseMovie().listMovieDB;
+      lisBill = await DatabaseMovie.instance.listMovieDB;
     }
     return lisBill;
   }

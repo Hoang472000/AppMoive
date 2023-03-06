@@ -32,7 +32,7 @@ class _MyAppState extends State<MyApp> {
     return RepositoryProvider.value(
       value: repository,
       child: BlocProvider(
-        create: (_) => MovieBloc(repository: repository),
+        create: (_) => MovieBloc(repository: repository, currentPage: 1),
         child: MaterialApp(
             theme: ThemeData(
                 appBarTheme: AppBarTheme(

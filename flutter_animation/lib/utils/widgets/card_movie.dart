@@ -30,7 +30,10 @@ class CardMovie {
             child: CachedNetworkImage(
               fit: BoxFit.fitWidth,
               imageUrl: Utils.convertUrlImage(move.posterPath ?? ""),
-              errorWidget: (context, url, error) => const Icon(Icons.person, fill:1,),
+              errorWidget: (context, url, error) => const Icon(
+                Icons.person,
+                fill: 1,
+              ),
             ),
           ),
           Positioned(
@@ -67,15 +70,12 @@ class CardMovie {
                 Container(
                   child: Text(
                     Utils.convertTime(move.releaseDate ?? ""),
-                    style:
-                    TextStyle(color: Colors.white, fontSize: 14, height: 1.5),
+                    style: TextStyle(
+                        color: Colors.white, fontSize: 14, height: 1.5),
                   ),
                 ),
                 Container(
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width / 2.5,
+                  width: MediaQuery.of(context).size.width / 2.5,
                   child: Text(
                     "${(move.title ?? "").toUpperCase()}",
                     style: TextStyle(
